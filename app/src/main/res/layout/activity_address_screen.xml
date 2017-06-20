@@ -6,12 +6,12 @@
     android:paddingRight="16dp">
 
     <EditText
-        android:id="@+id/streetaddress"
+        android:id="@+id/city"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_above="@id/apartmentnumber"
         android:layout_centerHorizontal="true"
-        android:hint="Street Address" />
+        android:layout_centerInParent="true"
+        android:hint="City" />
 
     <EditText
         android:id="@+id/apartmentnumber"
@@ -22,12 +22,13 @@
         android:hint="Apartment #" />
 
     <EditText
-        android:id="@+id/city"
+        android:id="@+id/streetaddress"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_above="@id/apartmentnumber"
         android:layout_centerHorizontal="true"
-        android:layout_centerInParent="true"
-        android:hint="City" />
+        android:hint="Street Address" />
+
 
     <EditText
         android:id="@+id/state"
