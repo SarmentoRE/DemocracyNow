@@ -1,62 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="comsarmentoaj.github.democracynow.AddressScreen">
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
 
-    <RelativeLayout
-        android:id="@+id/rlayout"
-        android:layout_width="368dp"
-        android:layout_height="wrap_content">
+    <EditText
+        android:id="@+id/streetaddress"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/apartmentnumber"
+        android:layout_centerHorizontal="true"
+        android:hint="Street Address" />
 
-        <EditText
-            android:id="@+id/streetaddress"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="100dp"
-            android:hint="Street Address" />
+    <EditText
+        android:id="@+id/apartmentnumber"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/city"
+        android:layout_centerHorizontal="true"
+        android:hint="Apartment #" />
 
-        <EditText
-            android:id="@+id/apartmentnumber"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/streetaddress"
-            android:layout_centerHorizontal="true"
-            android:hint="Apartment #" />
+    <EditText
+        android:id="@+id/city"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:hint="City" />
 
-        <EditText
-            android:id="@+id/city"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/apartmentnumber"
-            android:layout_centerHorizontal="true"
-            android:hint="City" />
+    <EditText
+        android:id="@+id/state"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/city"
+        android:layout_centerHorizontal="true"
+        android:hint="State" />
 
-        <EditText
-            android:id="@+id/state"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/city"
-            android:layout_centerHorizontal="true"
-            android:hint="State" />
+    <EditText
+        android:id="@+id/zip"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/state"
+        android:layout_centerHorizontal="true"
+        android:hint="Zip" />
 
-        <EditText
-            android:id="@+id/zip"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/state"
-            android:layout_centerHorizontal="true"
-            android:hint="Zip" />
-
-        <Button
-            android:id="@+id/buttoninfo"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:text="Submit" />
-    </RelativeLayout>
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/buttoninfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Submit" />
+</RelativeLayout>
