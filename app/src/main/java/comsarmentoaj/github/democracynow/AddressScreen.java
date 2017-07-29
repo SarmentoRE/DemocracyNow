@@ -1,8 +1,8 @@
 package comsarmentoaj.github.democracynow;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,9 +29,11 @@ public class AddressScreen extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String Address = ((EditText) findViewById(R.id.streetaddress)).getText() + "" + ((EditText) findViewById(R.id.apartmentnumber)).getText() + ((EditText) findViewById(R.id.city)).getText() + ((EditText) findViewById(R.id.state)).getText() + ((EditText) findViewById(R.id.zip)).getText();
-                Address.replace(" ", "_");
+                String Address = ((EditText) findViewById(R.id.streetaddress)).getText() + " " + ((EditText) findViewById(R.id.apartmentnumber)).getText() + " " + ((EditText) findViewById(R.id.city)).getText() + " " + ((EditText) findViewById(R.id.state)).getText() + " " + ((EditText) findViewById(R.id.zip)).getText();
+                Address = Address.replaceAll("\\s+", "_");
                 freedom(Address);
+                Intent intent = new Intent(AddressScreen.this, Finalpage.class);
+                startActivity(intent);
             }
         });
     }
@@ -39,13 +41,14 @@ public class AddressScreen extends AppCompatActivity {
 
     public void freedom(String addr) {
         String url = uri + "?address=" + addr + "&key=" + getString(R.string.api_key);
-        String d = "f";
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         StringRequest jsonr = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
+                //String d = "Freedom";
+                Politicalinfo.getInstance().politicalinfosingleton = response;
+                // Log.d(d,Politicalinfo.getInstance().politicalinfosingleton);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -54,8 +57,5 @@ public class AddressScreen extends AppCompatActivity {
             }
         });
         requestQueue.add(jsonr);
-        Log.d(d, url);
     }
-
-
 }
